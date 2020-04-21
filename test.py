@@ -31,10 +31,9 @@ def atack_pos(n, m, val, bord): # funtion for check attakin possitions
         for i in range(bord_dem):
             if bord[m][i] == 'C': # check atakking position horizontally
                 return True
-                break
             if bord[i][n] == 'C': # check atakking position Vertically
                 return True
-    
+            
     elif val == 'B': # check if attacking pies is Bishop
         for i in range(bord_dem):
             try:
