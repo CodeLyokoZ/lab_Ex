@@ -26,50 +26,44 @@ def pos_convert(val,bord): # funtion for convert position valies to list index
     return (n, m)
 
 def atack_pos(n, m, val, bord): # funtion for check attakin possitions
-    attack = False
     bord_dem = len(bord)
     if val == 'R': # check if attacking pies is Ruk
         for i in range(bord_dem):
             if bord[m][i] == 'C': # check atakking position horizontally
-                attack = True
+                return True
                 break
             if bord[i][n] == 'C': # check atakking position Vertically
-                attack = True
-                break
+                return True
     
     elif val == 'B': # check if attacking pies is Bishop
         for i in range(bord_dem):
             try:
                 if bord[m - i][n - i] == 'C': # check atakking position diaganally
-                    attack = True
-                    break
+                    return True
             except:
                 pass
             try:
                 if bord[m + i][n + i] == 'C': 
-                    attack = True  
-                    break
+                    return True
             except:
                 pass
             try:
                 if bord[m - i][n + i] == 'C': # check atakking position reverse diaganally
-                    attack = True
-                    break
+                    return True
             except:
                 pass
             try:
                 if bord[m + i][n - i] == 'C':
-                    attack = True
-                    break
+                    return True
             except:
                 pass
             
     elif val == 'Q': # check if attacking pies is Quine
         if atack_pos(n, m, 'R', bord): # check queen attack like Ruk
-            attack = True
+            return True
         elif atack_pos(n, m, 'B', bord): # check queen attack like Bishop
-            attack = True
-    return attack # return whether attack is succesful
+            return True
+    return False # return attack is Unsuccesful
         
 n = 8 # bord dimention
 chess_bord = create_bord(n, n) # create a chess bord
