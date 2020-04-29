@@ -18,10 +18,10 @@ def add_bst(i, index = 0): #funtion for add value to binary search tree
     l_nod = (index * 2 + 1) # left nod index value
     r_nod = (index * 2 + 2) # right nod index value
     
-    try:
-        out_list[index]
-    except:
-        out_list += ['null' for _ in range(index - len(out_list) + 1)]
+    currunt_tree_len = len(out_list) # get currunt tree length
+    
+    if currunt_tree_len < index: #if tree length insufficent
+        out_list += ['null' for _ in range((index - currunt_tree_len) + 1)] # extend the tree
     
     if out_list[index] == 'null': # if position is empty assign nod value
         out_list[index] = i
