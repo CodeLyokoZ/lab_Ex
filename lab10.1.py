@@ -15,9 +15,6 @@ def add_bst(i, index = 0): #funtion for add value to binary search tree
     
     global out_list
     
-    l_nod = (index * 2 + 1) # left nod index value
-    r_nod = (index * 2 + 2) # right nod index value
-    
     currunt_tree_len = len(out_list) # get currunt tree length
     
     if not(currunt_tree_len > index): #if tree length insufficent
@@ -27,8 +24,10 @@ def add_bst(i, index = 0): #funtion for add value to binary search tree
         out_list[index] = i
     else:
         if i < out_list[index]: # check wether child value less than pareant value
+            l_nod = (index * 2 + 1) # left nod index value
             add_bst(i, l_nod) # it true then send to value to left sub tree
         else:
+            r_nod = (index * 2 + 2) # right nod index value
             add_bst(i, r_nod) # it false then send to value to rigth sub tree
            
 filename = input() # get file name from terminal
