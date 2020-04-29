@@ -12,9 +12,7 @@ def save_file(filename, content): # funtion for save file
     return
     
 def add_bst(i, index = 0): #funtion for add value to binary search tree
-    
-    global out_list
-    
+    global out_list 
     currunt_tree_len = len(out_list) # get currunt tree length
     
     if not(currunt_tree_len > index): #if tree length insufficent
