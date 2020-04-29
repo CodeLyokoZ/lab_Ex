@@ -13,6 +13,8 @@ def save_file(filename, content): # funtion for save file
     
 def add_bst(i, index = 0): #funtion for add value to binary search tree
     
+    global out_list
+    
     l_nod = (index * 2 + 1) # left nod index value
     r_nod = (index * 2 + 2) # right nod index value
     
