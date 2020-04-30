@@ -28,7 +28,6 @@ def add_bst(i, index = 0): #funtion for add value to binary search tree
 filename = input() # get file name from terminal
 main_list = read_file(filename) # get user file content as list
 
-list_len = len(main_list) # Get length of list
 out_list = [] # create a empty tree list
 
 for i in main_list: # get each values in list
