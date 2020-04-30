@@ -13,7 +13,7 @@ def save_file(filename, content): # funtion for save file
     
 def add_bst(i, index = 0): #funtion for add value to binary search tree
     global out_list 
-    out_list += ['null' for _ in range((index - currunt_tree_len) + 1)] # extend the tree
+    out_list += ['null' for _ in range((index - len(out_list)) + 1)] # extend the tree
     
     if out_list[index] == 'null': # if position is empty assign nod value
         out_list[index] = i
