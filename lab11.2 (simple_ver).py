@@ -10,9 +10,7 @@ def posible_sub_seq(min_dim): #funtion for get possible pattern for 2nd power
     return [2**i for i in range(min_dim) if not(2**i > min_dim)][::-1]
     
 def cal_square(square_list, prev_val = 0): # funtion for calculate number of sub square can marked in mesh
-    m = row//square_list[0] # get row possible square set
-    n = col//square_list[0] # get col possible square set
-    posible_sq = m * n # get all possible square count
+    posible_sq = row//square_list[0] * col//square_list[0] # get all possible square count
     
     if square_list[1:] == []: # if next suare is empty
         return posible_sq - prev_val * 4 # return posiible square count
