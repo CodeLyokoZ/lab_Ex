@@ -57,4 +57,7 @@ col, row = list(map(int, read_file(input_filename))) # split it to col & row
 final_mesh = create_mesh(col, row) # create a final mesh
 min_seq = cal_square(final_mesh, posible_sub_seq(min(col, row))) # get minimum squre marking of mesh
 
+for i in final_mesh:
+    print(*i)
+    
 save_file('result.txt', min_seq) # save min value of marked squres count to file
