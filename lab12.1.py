@@ -11,7 +11,7 @@ def save_file(filename, content): # funtion for write file
 def get_mutation(ancestor, child): # funtion for get mutation insertation & spot change
     if ancestor == child: # if ancestor equal to child
         return [[0, 0, 1]] # nothing have to change
-    
+        
     if len(ancestor) == 1: # if ancector's last letter
         deffer = len(child) - len(ancestor) # get deffernt between ancector & child length
         if deffer < 0: # if differnt is minus 
@@ -26,18 +26,13 @@ def get_mutation(ancestor, child): # funtion for get mutation insertation & spot
             
     mute = [] # create mutation value list    
     if ancestor[0] == child[0]: # ancector & child first lettor is equal
-        for i in get_mutation(ancestor[1:], child[1:]): # get inserstion & spot changes using recursively
-            if i[2] == 1: # if list has possible values
-                    mute += [i] # add each possibilities
+        mute += [i for i in get_mutation(ancestor[1:], child[1:]) if i[2] == 1] # get inserstion & spot changes using recursively
     else:
-        for i in get_mutation(ancestor[1:], child[1:]): # get inserstion & spot changes using recursively
-            if i[2] == 1: # if list has possible values
-                mute += [[i[0] + 1, i[1], 1]] # add each possibilities 
+        mute += [[i[0] + 1, i[1], 1] for i in get_mutation(ancestor[1:], child[1:]) if i[2] == 1] # get inserstion & spot changes using recursively
 
         if len(ancestor) != len(child): # if length not equal
-            for i in get_mutation(ancestor, child[1:]): # get inserstion & spot changes using recursively
-                if i[2] == 1: # if list has possible values
-                    mute += [[i[0], i[1] + 1, 1]] # add each possibilities 
+            mute += [[i[0], i[1] + 1, 1] for i in get_mutation(ancestor, child[1:]) if i[2] == 1]
+
     return mute # return final mutation list
 
 ancestor, child = read_file(input()) # get ancestor & child values
