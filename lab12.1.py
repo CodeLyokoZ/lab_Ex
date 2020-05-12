@@ -11,6 +11,7 @@ def save_file(filename, content): # funtion for write file
 def get_mutation(ancestor, child): # funtion for get mutation insertation & spot change
     if ancestor == child: # if ancestor equal to child
         return [[0, 0, 1]] # nothing have to change
+    
     if len(ancestor) == 1: # if ancector's last letter
         deffer = len(child) - len(ancestor) # get deffernt between ancector & child length
         if deffer < 0: # if differnt is minus 
