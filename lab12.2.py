@@ -5,7 +5,6 @@ def read_file(filename): # funtion for read file
     with open(filename, 'r') as file: # open a file with read permissions
         content = file.read().split('\n') # split the lines
     
-    
     for i in content: # in each line
         i = i.split() # split it using space
         GPA = i[1] # get GPA
